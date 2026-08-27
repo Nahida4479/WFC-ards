@@ -13,13 +13,10 @@ require_once '../config.php';
 $connection = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
 $result = mysqli_query($connection, "SELECT question, answer FROM flashcards ORDER BY RAND() LIMIT 1;");
-
 $row = mysqli_fetch_assoc($result);
-    echo '<div class="flashcard_background"><p class="flashcard_text">' .htmlspecialchars($row['question']) . '</p></div>';
-
-
 ?>
 
+<section id="section">
 <div class="flashcard_background" id="flashcard_background">
     <div class="flashcard_inner">
         <div class="flashcard_front">
@@ -30,7 +27,19 @@ $row = mysqli_fetch_assoc($result);
         </div>
     </div>
 </div>
+</section>
 
+<script>
+    const card = document.getElementById('flashcard_background');
+    const inner = document.querySelector('.flashcard_inner');
+    card.addEventListener('click', () => {
+        if (inner.classList.contains('flipped')) {
+            inner.classList.remove('flipped');
+        } else {
+            inner.classList.add('flipped');
+        }
+    })
+</script>
 </body>
 </html>
 
