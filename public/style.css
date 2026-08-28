@@ -29,6 +29,15 @@
     user-select: none;
 }
 
+#answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    user-select: none;
+}
+
 .flashcard_inner {
     position: relative;
     width: 90%;
@@ -49,10 +58,7 @@
 
 .flashcard_back {
     transform: rotateY(180deg);
-}
-
-.flashcard_back p {
-    transform: rotateY(180deg);
+    visibility: hidden;
 }
 
 .flashcard_inner.flipped {
@@ -65,3 +71,19 @@
     align-items: center;
 }
 
+.flashcard_inner.flipped .flashcard_front {
+    visibility: hidden;
+}
+
+.flashcard_inner.flipped .flashcard_back {
+    visibility: visible;
+}
+
+#next {
+    background-color: black;
+    color: red;
+}
+
+#previous {
+    background-color: black;
+}

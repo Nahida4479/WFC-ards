@@ -29,6 +29,9 @@ $row = mysqli_fetch_assoc($result);
 </div>
 </section>
 
+<button id="next">Next</button>
+<button onclick="history.back()" id="previous">Previous</button>
+
 <script>
     const card = document.getElementById('flashcard_background');
     const inner = document.querySelector('.flashcard_inner');
@@ -39,6 +42,17 @@ $row = mysqli_fetch_assoc($result);
             inner.classList.add('flipped');
         }
     })
+
+document.getElementById('next').addEventListener('click', function() {
+    fetch('get_flashcard.php')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+
+        document.getElementById('question').textContent = data.question;
+        document.getElementById('answer').textContent = data.answer;
+});
 </script>
 </body>
 </html>
