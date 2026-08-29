@@ -30,8 +30,8 @@ $row = mysqli_fetch_assoc($result);
 </section>
 
 <div id="npbutton">
-<button id="next">Next</button>
 <button id="previous">Previous</button>
+<button id="next">Next</button>
     </div>
 
 <script>
@@ -69,6 +69,7 @@ document.getElementById('previous').addEventListener('click', () => {
     if (history_flashcards.length > 0) {
         const previous_card = history_flashcards.pop();
         inner.classList.remove('flipped');
+        card.style.backgroundColor = 'rgb(255, 147, 6)'
         document.getElementById('question').textContent = previous_card.question;
         document.getElementById('answer').textContent = previous_card.answer;
     }
