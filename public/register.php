@@ -12,6 +12,7 @@
 <input type="password" name="password" id="password_id">
 <button type="submit" id="submit_id">Register</button>
 
+</form>
 <script>
     const password_id = document.getElementById('password_id');
     const login_id = document.getElementById('login_id')
@@ -22,9 +23,7 @@
     if (password_id.value.length < 1 || login_id.value.length < 1) {
         alert("The registration form is incomplete")
         event.preventDefault();
-    }
-
-    if (password_id.value.length < 8) {
+    } else if (password_id.value.length < 8) {
         alert('Password is too short')
         event.preventDefault();
     } 
