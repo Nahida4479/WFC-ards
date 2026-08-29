@@ -29,8 +29,10 @@ $row = mysqli_fetch_assoc($result);
 </div>
 </section>
 
+<div id="npbutton">
 <button id="next">Next</button>
-<button onclick="history.back()" id="previous">Previous</button>
+<button id="previous">Previous</button>
+    </div>
 
 <script>
     const card = document.getElementById('flashcard_background');
@@ -38,20 +40,38 @@ $row = mysqli_fetch_assoc($result);
     card.addEventListener('click', () => {
         if (inner.classList.contains('flipped')) {
             inner.classList.remove('flipped');
+            card.style.backgroundColor = 'rgb(255, 147, 6)'
         } else {
             inner.classList.add('flipped');
+            card.style.backgroundColor = '#256db4'
         }
     })
 
+    let history_flashcards = [];
 document.getElementById('next').addEventListener('click', function() {
+    history_flashcards.push({
+        question: document.getElementById('question').textContent,
+        answer: document.getElementById('answer').textContent
+    });
+
     fetch('get_flashcard.php')
         .then(response => response.json())
         .then(data => {
             console.log(data);
-        })
 
         document.getElementById('question').textContent = data.question;
         document.getElementById('answer').textContent = data.answer;
+        inner.classList.remove('flipped');
+        })
+});
+
+document.getElementById('previous').addEventListener('click', () => {
+    if (history_flashcards.length > 0) {
+        const previous_card = history_flashcards.pop();
+        inner.classList.remove('flipped');
+        document.getElementById('question').textContent = previous_card.question;
+        document.getElementById('answer').textContent = previous_card.answer;
+    }
 });
 </script>
 </body>
