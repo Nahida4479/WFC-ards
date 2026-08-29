@@ -135,3 +135,34 @@ form {
     height: 100%;
     width: 100%;
 }
+
+
+@media screen and (max-width: 768px) {
+    .Register-Login {
+        min-width: unset;
+        width: 90%;
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    .input_lr {
+        width: 100%;
+    }
+
+    .login, .password {
+        font-size: 16px;
+        padding-left: 45px;
+    }
+
+    .p_lr {
+        font-size: 50px;
+    }
+
+    .switch_link {
+        font-size: 18px;
+    }
+
+    body {
+        overflow: visible;
+    }
+}
