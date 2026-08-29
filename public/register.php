@@ -15,10 +15,11 @@ session_start();
 <form method="POST">
        <p class="p_lr">Register</p>
     <div class="input_lr">
-<input type="text" name="login" id="login_id" class="login">
-<input type="password" name="password" id="password_id" class="password">
+<input type="text" name="login" id="login_id" class="login" placeholder="Username">
+<input type="password" name="password" id="password_id" class="password" placeholder="Password, your password is hashed :)">
 <button type="submit" id="submit_id" class="button">Register</button>
 <div>
+    <p class="switch_link">You have an account? <a href="login.php">Login</a></p>
 
 </form>
 </div>
