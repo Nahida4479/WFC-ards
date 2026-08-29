@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@ $row = mysqli_fetch_assoc($result);
 
 <header>
     <?php if (isset($_SESSION['login'])) {
-        echo "<p>Logged in as: " . htmlspecialchars($_SESSION['login']) . "</p>";
+        echo "<p>Logged in as: " . htmlspecialchars($_SESSION['login']) . " | <a href=logout.php id=logout1></a> " . "</p>";
      } else {
         echo '<p><a href=login.php>Login</a></p>';
     }
