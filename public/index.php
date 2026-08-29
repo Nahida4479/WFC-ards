@@ -1,6 +1,3 @@
-<?php 
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +15,15 @@ $connection = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 $result = mysqli_query($connection, "SELECT question, answer FROM flashcards ORDER BY RAND() LIMIT 1;");
 $row = mysqli_fetch_assoc($result);
 ?>
+
+<header>
+    <?php if (isset($_SESSION['login'])) {
+        echo "<p>Logged in as: " . htmlspecialchars($_SESSION['login']) . "</p>";
+     } else {
+        echo '<p><a href=login.php>Login</a></p>';
+    }
+    ?>
+</header>
 
 <section id="section">
 <div class="flashcard_background" id="flashcard_background">

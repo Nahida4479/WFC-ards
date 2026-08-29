@@ -90,7 +90,7 @@ body {
 
 .p_lr {
     font-size: 90px;
-    margin-top: -30px;
+    margin-top: -20px;
     font-family:Georgia, 'Times New Roman', Times, serif;
     animation: text 2s ease-in-out infinite;
     user-select: none;
@@ -98,17 +98,17 @@ body {
 
 @keyframes text {
     0% {
-        transform: translateY(-10px);
+        transform: translateY(0px);
         color: rgb(48, 47, 46);
     }
     
     50% {
-        transform: translateY(10px);
+        transform: translateY(30px);
         color: black;
     }
 
     100% {
-        transform: translateY(-10px);
+        transform: translateY(0px);
         color: rgb(48, 47, 46);
     }
 }
@@ -116,4 +116,22 @@ body {
 .switch_link {
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 30px;
+    margin-top: auto;
+}
+
+
+.error {
+    font-size: 20px;
+    min-height: 30px;
+    color: red;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
