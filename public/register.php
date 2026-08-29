@@ -1,18 +1,28 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="style_login_register.css">
 </head>
 <body>
 
+    <div class="Register-Login">
 <form method="POST">
-<input type="text" name="login" id="login_id">
-<input type="password" name="password" id="password_id">
-<button type="submit" id="submit_id">Register</button>
+       <p class="p_lr">Register</p>
+    <div class="input_lr">
+<input type="text" name="login" id="login_id" class="login">
+<input type="password" name="password" id="password_id" class="password">
+<button type="submit" id="submit_id" class="button">Register</button>
+<div>
 
 </form>
+</div>
+
 <script>
     const password_id = document.getElementById('password_id');
     const login_id = document.getElementById('login_id')

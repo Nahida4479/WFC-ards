@@ -1,16 +1,30 @@
+<?php 
+session_start();
+
+// if (isset($_SESSION['user_id'])) {
+//     echo 
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="style_login_register.css">
 </head>
 <body>
+    <div class="Register-Login">
 <form method="POST">
-    <input type="text" name="login" id="login_id_l">
-    <input type="password" name="password" id="password_id_l">
-    <button type="submit" id="submit_id_l">Login</button>
-</form>
+        <p class="p_lr">Login</p>
+    <div class="input_lr">
+    <input type="text" name="login" id="login_id_l" class="login">
+    <input type="password" name="password" id="password_id_l" class="password">
+    <button type="submit" id="submit_id_l" class="button">Login</button>
+    <div>
+    </form>
+</div>
+
     <script>
     const password_id = document.getElementById('password_id_l');
     const login_id = document.getElementById('login_id_l')
@@ -39,6 +53,8 @@ $result = mysqli_query($connection, "SELECT * FROM users WHERE login = '$login';
 $row = mysqli_fetch_assoc($result);
 
 if ($row && password_verify($password, $row['password']) ) {
+    $_SESSION['user_id'] = $row['id'];
+    $_SESSION['login'] = $row['login'];
     echo "<script>alert('Login successful');</script>";
 } else {
     echo "<script>alert('Invalid username or password');</script>";
