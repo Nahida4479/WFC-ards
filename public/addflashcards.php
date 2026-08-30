@@ -45,9 +45,32 @@ $result = mysqli_query($connection, "SELECT * FROM subjects WHERE user_id = $use
     <input type="text" name="folder_name" placeholder="Folder name" id="folder_name1">
     <button type="submit" name="folder_button" id="button">Create folder</button>
 
+<div id="delete_panel" class="hidden">
+<?php
+$result2 = mysqli_query($connection, "SELECT * FROM subjects WHERE user_id = $user_id ORDER BY id DESC");
+while ($row = mysqli_fetch_assoc($result2)) {
+    echo "<a href='deletefolder.php?subject_id=" . $row['id'] . "' class='delete_icon'>🗑️" . htmlspecialchars($row['name']) . "</a>";
+}
+?>
+
+</div>
 </form>
+<button id="toggle_delete_panel">🗑️ Delete a folder</button>
 
 <script>
+// Delete panel display
+const delete_panel = document.getElementById('delete_panel');
+const toogle_delete_panel = document.getElementById("toggle_delete_panel");
+
+toogle_delete_panel.addEventListener("click", () => {
+    delete_panel.classList.toggle("hidden");
+})
+
+
+
+
+
+// Alert
 const folder_name1 = document.getElementById('folder_name1');
 const button = document.getElementById('button')
 

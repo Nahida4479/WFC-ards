@@ -139,3 +139,20 @@ body {
     }
 }
 
+
+
+/* Delete panel */
+
+.hidden {
+    display: none;
+}
+
+#toogle_delete_panel {
+
+}
+
+#delete_panel {
+    background-color: red;
+    width: 200px;
+    height: 200px;
+}
