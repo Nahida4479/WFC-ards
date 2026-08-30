@@ -30,8 +30,9 @@ $result = mysqli_query($connection, "SELECT * FROM subjects WHERE user_id = $use
 </head>
 <body>
     
+
 <?php
-    echo "<div class=folder>";
+    echo "<div class=folder>" . "<h1 id=YourFolderText>Your Folders</h1>";
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<div class=folder_a><a href='add_flashcards.php?subject_id=" . $row['id'] . "' class='folder_a_text'>" . htmlspecialchars($row['name']) . "</a></div>";
     }

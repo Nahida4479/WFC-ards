@@ -1,5 +1,9 @@
-body {
+:root {
+    --orange-color: rgb(255, 147, 6);
+}
 
+body {
+    background: linear-gradient(to right, black, rgb(245, 208, 0), rgb(255, 147, 6));
 }
 
 .folder {
@@ -7,13 +11,13 @@ body {
     text-align: center;
     flex-direction: column;
     gap: 8px;
-    background-color: red;
-    width: 300px;
-    height: 500px;
+    background-color: var(--orange-color);
+    width: 400px;   
+    height: 600px;
     text-align: center;
     justify-content: flex-start;
-    align-items: top;
-    padding-top: 50px;
+    align-items: flex-start;
+    padding-top: 100px;
     border-radius: 30px;
     border: 3px dashed black;
     overflow-y: scroll;
@@ -39,6 +43,7 @@ body {
     text-overflow: ellipsis;
     padding: 0 15px;
     flex-shrink: 0;
+    border: 2px dashed var(--orange-color);
     
 }
 
@@ -58,4 +63,28 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
+    color: var(--orange-color);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 23px;
 }
+
+#YourFolderText {
+    flex-shrink: 0;
+    align-self: center;
+    font-size: 50px;
+    margin-top: -80px;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(0 100% 0 0);
+    animation: typing 3s steps(12) infinite;
+    color: white;
+    text-align: center;
+}
+
+@keyframes typing {
+    to {
+        clip-path: inset(0 -30px 0 0);
+    }
+}
+
