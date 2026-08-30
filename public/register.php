@@ -14,6 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $result = mysqli_query($connection, "INSERT INTO users (login, password) VALUES ('$login', '$hashed_password')");
+        
+        $new_user_id = mysqli_insert_id($connection);
+        $_SESSION['user_id'] = $new_user_id;
+        $_SESSION['login'] = $login;
+
         header('Location: index.php');
         exit;
     } catch (mysqli_sql_exception $e) {

@@ -39,6 +39,7 @@ $row = mysqli_fetch_assoc($result);
 </div>
 </section>
 
+<a href="addflashcards.php">addflashcards</a>
 <div id="npbutton">
 <button id="previous">Previous</button>
 <button id="next">Next</button>
