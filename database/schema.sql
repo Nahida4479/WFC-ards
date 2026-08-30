@@ -40,10 +40,6 @@ CREATE TABLE `flashcards` (
 
 LOCK TABLES `flashcards` WRITE;
 /*!40000 ALTER TABLE `flashcards` DISABLE KEYS */;
-INSERT INTO `flashcards` VALUES
-(1,'How use PHP','Backend',1),
-(2,'Expand CSS shortcut','Cascading Style Sheets',2),
-(3,'Enter 3 html tags','<h1>,<h2>,<p>',4);
 /*!40000 ALTER TABLE `flashcards` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,7 +53,10 @@ DROP TABLE IF EXISTS `subjects`;
 CREATE TABLE `subjects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `subjects_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -67,10 +66,6 @@ CREATE TABLE `subjects` (
 
 LOCK TABLES `subjects` WRITE;
 /*!40000 ALTER TABLE `subjects` DISABLE KEYS */;
-INSERT INTO `subjects` VALUES
-(1,'PHP'),
-(2,'CSS'),
-(4,'HTML');
 /*!40000 ALTER TABLE `subjects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +82,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-08-29 19:36:24
+-- Dump completed on 2026-08-30 18:02:24
