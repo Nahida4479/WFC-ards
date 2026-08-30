@@ -4,6 +4,11 @@
 
 body {
     background: linear-gradient(to right, black, rgb(245, 208, 0), rgb(255, 147, 6));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
 .folder {
@@ -26,6 +31,9 @@ body {
     padding-right: 10px;
     padding-left: 10px;
     scrollbar-width: none;
+    margin-left: -1000px;
+    margin-top: 100px;
+    padding-bottom: 20px;
 }
 
 .folder_a {
@@ -48,10 +56,53 @@ body {
 }
 
 #createfolder {
-    width: 300px;
-    background-color: red;
-    margin: auto;
+    margin-left: -1000px;
+    margin-top: 100px;
+    gap: 10px;
+    margin-top: 5px;
 }
+
+#folder_name1 {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 147, 6);
+    font-size: 20px;
+}
+
+#button {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    width: 170px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 147, 6);
+    font-size: 20px;
+    
+}
+
+#button:hover {
+    background-color: red;
+
+}
+
+#folder_name1, #button {
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    font-family: inherit;
+    line-height: normal;
+    outline: none;
+}
+
+
+
+
+
 
 .folder_a_text {
     display: flex;
