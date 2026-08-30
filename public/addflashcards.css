@@ -71,6 +71,8 @@ body {
     border-radius: 10px;
     border: 2px solid rgb(255, 147, 6);
     font-size: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 #button {
@@ -147,12 +149,53 @@ body {
     display: none;
 }
 
-#toogle_delete_panel {
+#toggle_delete_panel {
 
+}
+
+#delete_panel.hidden {
+    display: none;
 }
 
 #delete_panel {
-    background-color: red;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--orange-color);
+    border-radius: 30px;
+    border: 3px dashed black;
     width: 200px;
     height: 200px;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    gap: 5px;
+    margin-top: -600px;
+    margin-left: 400px;
 }
+
+.delete_icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    width: 90%;
+    height: 50px;
+    gap: 5px;
+    border-radius: 30px;
+}
+
+#text_delete {
+    font-size: 25px;
+    color: white;
+}
+

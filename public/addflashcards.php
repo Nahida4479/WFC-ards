@@ -46,6 +46,7 @@ $result = mysqli_query($connection, "SELECT * FROM subjects WHERE user_id = $use
     <button type="submit" name="folder_button" id="button">Create folder</button>
 
 <div id="delete_panel" class="hidden">
+    <h1 id="text_delete">Delete folder</h1>
 <?php
 $result2 = mysqli_query($connection, "SELECT * FROM subjects WHERE user_id = $user_id ORDER BY id DESC");
 while ($row = mysqli_fetch_assoc($result2)) {
@@ -78,6 +79,11 @@ button.addEventListener("click", () => {
 
 if (folder_name1.value.length > 16) {
     alert("The name is too long (max 16)")
+    event.preventDefault();
+}
+
+if (folder_name1.value.length < 1) {
+    alert("You didn't entered folder name")
     event.preventDefault();
 }
 
