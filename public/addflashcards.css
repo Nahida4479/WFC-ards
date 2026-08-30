@@ -2,11 +2,19 @@
     --orange-color: rgb(255, 147, 6);
 }
 
+section {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
 body {
     background: linear-gradient(to right, black, rgb(245, 208, 0), rgb(255, 147, 6));
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
     margin: 0;
 }
@@ -17,12 +25,12 @@ body {
     flex-direction: column;
     gap: 8px;
     background-color: var(--orange-color);
-    width: 400px;   
+    width: 400px;
     height: 600px;
-    text-align: center;
     justify-content: flex-start;
     align-items: flex-start;
     padding-top: 100px;
+    padding-bottom: 20px;
     border-radius: 30px;
     border: 3px dashed black;
     overflow-y: scroll;
@@ -31,9 +39,6 @@ body {
     padding-right: 10px;
     padding-left: 10px;
     scrollbar-width: none;
-    margin-left: -1000px;
-    margin-top: 100px;
-    padding-bottom: 20px;
 }
 
 .folder_a {
@@ -52,19 +57,19 @@ body {
     padding: 0 15px;
     flex-shrink: 0;
     border: 2px dashed var(--orange-color);
-    
 }
 
 #createfolder {
-    margin-left: -1000px;
-    margin-top: 100px;
-    gap: 10px;
-    margin-top: 5px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 #folder_name1 {
+    background-image: url(./icons/arrow-right-circle.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: left 10px center;
     background-color: black;
     color: white;
     font-weight: bold;
@@ -74,7 +79,7 @@ body {
     border: 2px solid rgb(255, 147, 6);
     font-size: 20px;
     padding-right: 5px;
-    padding-left: 5px;
+    padding-left: 35px;
 }
 
 #button {
@@ -86,15 +91,15 @@ body {
     border-radius: 10px;
     border: 2px solid rgb(255, 147, 6);
     font-size: 20px;
-    
 }
 
 #button:hover {
     background-color: red;
-
 }
 
-#folder_name1, #button {
+#folder_name1,
+#button,
+#toggle_delete_panel {
     -webkit-appearance: none;
     appearance: none;
     box-sizing: border-box;
@@ -102,11 +107,6 @@ body {
     line-height: normal;
     outline: none;
 }
-
-
-
-
-
 
 .folder_a_text {
     display: flex;
@@ -143,16 +143,8 @@ body {
     }
 }
 
-
-
-/* Delete panel */
-
 .hidden {
     display: none;
-}
-
-#toggle_delete_panel {
-
 }
 
 #delete_panel.hidden {
@@ -160,16 +152,15 @@ body {
 }
 
 #delete_panel {
-    position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: var(--orange-color);
     border-radius: 30px;
     border: 3px dashed black;
     width: 200px;
-    height: 200px;
+    height: 700px;
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -177,8 +168,8 @@ body {
     overflow-x: hidden;
     scrollbar-width: none;
     gap: 5px;
-    margin-top: -600px;
-    margin-left: 400px;
+    margin-left: -230px;
+    margin-top: -727px;
 }
 
 .delete_icon {
@@ -210,7 +201,71 @@ body {
     border-radius: 10px;
     border: 2px solid rgb(255, 147, 6);
     font-size: 20px;
-    margin-left: -830px;
-    gap: 5px;
-    margin-top: -50px;
+}
+
+#toggle_delete_panel:hover {
+    background-color: red;
+}
+
+#howtouse {
+    background-color: black;
+    border: 3px dashed var(--orange-color);
+    width: 600px;
+    height: 723px;
+    border-radius: 30px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+#htu_h1 {
+    font-size: 80px;
+    margin-top: 20px;
+}
+
+#howtouse_1 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-right: 25px;
+    padding-left: 25px;
+    box-sizing: border-box;
+    background-color: white;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    margin-top: -25px;
+    border-radius: 30px;
+    color: black;
+    border: 4px dashed var(--orange-color);
+}
+
+#left_column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#button_row {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.howtouse_step svg {
+    flex-shrink: 0;
+    display: block;
+    margin: -2px;
+    width: 50px;
+    height: 50px;
+}
+
+.howtouse_step {
+    font-size: 25px;
 }
