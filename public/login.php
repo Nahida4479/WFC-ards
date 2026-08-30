@@ -33,7 +33,7 @@ if ($row && password_verify($password, $row['password']) ) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>WFC-ards</title>
     <link rel="stylesheet" href="style_login_register.css">
 </head>
 <body>
