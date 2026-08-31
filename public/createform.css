@@ -17,6 +17,15 @@ header {
     background-color: var(--orange-color);
     width: 100%;
     padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#echoa {
+    font-size: 30px;
+    text-decoration: none;
+    color: red;
 }
 
 * {

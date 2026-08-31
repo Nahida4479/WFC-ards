@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
+$user_id = $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,14 +25,20 @@ $row = mysqli_fetch_assoc($result);
 ?>
 
 <header>
+    <a href="addflashcards.php">addflashcards</a>
+
     <?php if (isset($_SESSION['login'])) {
         echo "<p>Logged in as: " . htmlspecialchars($_SESSION['login']) . " | <a href=logout.php id=logout1></a> " . "</p>";
      } else {
         echo '<p><a href=login.php>Login</a></p>';
     }
     ?>
+
 </header>
 
+<div id="all">
+
+<div id="flashcard_column">
 <section id="section">
 <div class="flashcard_background" id="flashcard_background">
     <div class="flashcard_inner">
@@ -39,12 +52,27 @@ $row = mysqli_fetch_assoc($result);
 </div>
 </section>
 
-<a href="addflashcards.php">addflashcards</a>
 <div id="npbutton">
 <button id="previous">Previous</button>
 <button id="next">Next</button>
     </div>
+    </div>
 
+    </div>
+
+
+    <div class="select_folder">
+        <h1 style="color: white;">Your flashcards folder</h1>
+    <div id="folders">
+<?php
+    $folders = mysqli_query($connection, "SELECT * FROM subjects WHERE user_id = '$user_id' ORDER BY id DESC;");
+
+    while ($list = mysqli_fetch_assoc($folders)) {
+        echo "<a href='index.php?subject_id=" . $list['id'] . "'id='folder_row'>" . htmlspecialchars($list['name']) . "</a>";
+    }
+?>  
+</div>
+</div>
 <script>
     const card = document.getElementById('flashcard_background');
     const inner = document.querySelector('.flashcard_inner');

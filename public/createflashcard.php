@@ -37,6 +37,9 @@ if (isset($_POST['save'])) {
 
 <header>
 <h1>Adding to folder: <?php echo $folder_row['name']; ?></h1>
+<?php 
+    echo "<a href='index.php' id=echoa>I finish (click)</a>"
+?>
 </header>   
 
 <div id="form">
@@ -57,7 +60,7 @@ if (isset($_POST['save'])) {
 <?php
     $flashcards = mysqli_query($connection, "SELECT * FROM flashcards WHERE subject_id = '$subject_id'");
     while ($card = mysqli_fetch_assoc($flashcards)) {
-        echo "<p>" . htmlspecialchars($card['question']) . "-" . htmlspecialchars($card['answer']) . " <a href=delete_flashcard.php?flashcard_id=" . card['id'] . "&subject_id=" . $subject_id . "'>🗑️</a></p>";
+        echo "<p>" . htmlspecialchars($card['question']) . "-" . htmlspecialchars($card['answer']) . " <a href=delete_flashcard.php?flashcard_id=" . $card['id'] . "&subject_id=" . $subject_id . ">🗑️</a></p>";
     }
 ?>
 </div>
