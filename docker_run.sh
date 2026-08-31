@@ -8,7 +8,7 @@ until mysqladmin ping --silent; do
 done
 
 mysql -e "CREATE DATABASE IF NOT EXISTS flashcards_app;"
-mysql -e "CREATE USER IF NOT EXISTS 'flashcards_user'@'localhost' INDETIFIED by 'ubuntu';"
+mysql -e "CREATE USER IF NOT EXISTS 'flashcards_user'@'localhost' IDENTIFIED by 'ubuntu';"
 mysql -e "GRANT ALL PRIVILEGES ON flashcards_app.* TO 'flashcards_user'@'localhost';"
 mysql -e  "FLUSH PRIVILEGES;"
 
