@@ -1,6 +1,6 @@
 # WFC-ards
 
-A PHP web application with flashcards for learning. Create folders, add your own flashcards, and study them with an interactive flip-card interface.
+A PHP web application with flashcards for learning. Create folders, add your own flashcards, and study them with an interactive interface.
 
 ## Features
 
@@ -33,7 +33,7 @@ docker run -d -p 8000:8000 wfc-ards
 
 ### Option 3: Run without Docker
 
-Requirements: PHP 8+, MySQL/MariaDB, `php-mysqli` extension.
+Requirements: `PHP 8+`, `MySQL/MariaDB`, `php-mysqli`.
 
 1. Clone the repository:
 ```bash
