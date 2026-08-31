@@ -15,6 +15,16 @@ $folder = mysqli_query($connection, "SELECT * FROM subjects WHERE user_id = '$us
 $folder_row = mysqli_fetch_assoc($folder);
 ?>
 
+<?php
+if (isset($_POST['save'])) {
+    $question = $_POST['question'];
+    $answer = $_POST['answer'];
+    $save_flashcard = mysqli_query($connection, "INSERT INTO flashcards (question, answer, subject_id) VALUES ('$question', '$answer', '$subject_id');");
+    header('Location: createflashcard.php?subject_id=' . $subject_id);
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +33,23 @@ $folder_row = mysqli_fetch_assoc($folder);
     <title>WFC-ards</title>
 </head>
 <body>
+
+<form method="POST">
+    <input type="text" name="question" placeholder="Question">
+    <input type="text" name="answer" placeholder="Answer">
+    <button type="submit" name="save">Save flashcard</button>
+
+</form>
+
+<div class="flashcard_list">
+<?php
+    $flashcards = mysqli_query($connection, "SELECT * FROM flashcards WHERE subject_id = '$subject_id'");
+    while ($card = mysqli_fetch_assoc($flashcards)) {
+        echo "<p>" . htmlspecialchars($card['question']) . "-" . htmlspecialchars($card['answer']) . "</p>";
+    }
+?>
+</div>
+
 <?php 
     echo "<p>Folder" . htmlspecialchars($folder_row['name']) . "</p>";
 ?>
