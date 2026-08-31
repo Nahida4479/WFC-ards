@@ -38,7 +38,7 @@ if (isset($_POST['save'])) {
     <input type="text" name="question" placeholder="Question">
     <input type="text" name="answer" placeholder="Answer">
     <button type="submit" name="save">Save flashcard</button>
-
+    <link rel="stylesheet" href="createform.css">
 </form>
 
 <div class="flashcard_list">
