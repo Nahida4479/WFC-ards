@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y php php-mysqli mariadb-server && rm -rf
 
 WORKDIR /WFC-ards
 
-COPY ..
+COPY . .
 COPY config-docker.php config.php
 
 COPY docker_run.sh /docker_run.sh
